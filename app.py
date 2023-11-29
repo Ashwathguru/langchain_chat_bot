@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-from config import OPENAI_API_KEY
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
