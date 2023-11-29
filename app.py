@@ -7,10 +7,13 @@ from langchain.vectorstores import FAISS
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
 from langchain.callbacks import get_openai_callback
+import os
 
 
 def main():
     load_dotenv()
+    os.environ['OPENAI_API_KEY']='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'
+    openai_api_key='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'
     st.set_page_config(page_title="Ask your PDF")
     st.header("Ask your PDF 💬")
     
@@ -34,7 +37,7 @@ def main():
       chunks = text_splitter.split_text(text)
       
       # create embeddings
-      embeddings = OpenAIEmbeddings()
+      embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
       knowledge_base = FAISS.from_texts(chunks, embeddings)
       
       # show user input
