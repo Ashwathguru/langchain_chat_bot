@@ -12,8 +12,8 @@ import os
 
 def main():
     load_dotenv()
-    os.environ['OPENAI_API_KEY']='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'
-    openai_api_key='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'
+    os.environ['OPENAI_API_KEY']='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'
+    openai_api_key='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'
     st.set_page_config(page_title="Ask your PDF")
     st.header("Ask your PDF 💬")
     
