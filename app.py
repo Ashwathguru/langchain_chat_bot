@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+from config import OPENAI_API_KEY
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
@@ -12,8 +13,6 @@ import os
 
 def main():
     load_dotenv()
-    os.environ['OPENAI_API_KEY']='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'
-    openai_api_key='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'
     st.set_page_config(page_title="Ask your PDF")
     st.header("Ask your PDF 💬")
     
@@ -37,7 +36,7 @@ def main():
       chunks = text_splitter.split_text(text)
       
       # create embeddings
-      embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+      embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
       knowledge_base = FAISS.from_texts(chunks, embeddings)
       
       # show user input
